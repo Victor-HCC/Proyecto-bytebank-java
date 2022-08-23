@@ -1,7 +1,8 @@
-
-public class Cuenta {
-
-	public static void main(String[] args) {
-		
-	}
+//entidad Cuenta:
+class Cuenta {
+	//atributos
+	double saldo;
+	int agencia;
+	int numero;
+	String titular;
 }
