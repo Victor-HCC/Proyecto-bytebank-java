@@ -1,6 +1,7 @@
 //entidad Cuenta:
 class Cuenta {
-	//atributos
+	/*atributos, estos solo viven dentro de las instancias de la clase, solo se puede acceder
+	 * a ellos mediante los objetos creado, no mediante esta clase*/
 	private double saldo; /* public/private son modificadores de acceso, con private no se 
 	podra modificar el valor del atributo saldo directamente, solo mediante metodos*/
 	private int agencia;
@@ -11,6 +12,31 @@ class Cuenta {
 	private Cliente titular = new Cliente(); /*como en este caso estoy creando el objeto Cliente 
 	desde la clase Cuenta la referencia a ese objeto solo sera accesible desde esta clase*/
 	
+	/*
+	public Cuenta() { //Metodo q retora el objeto cuenta, no tiene ningun tipo de retorno, Java lo genera automaticamente, es el constructor
+		System.out.println("Aqui se crea una nueva cuenta");
+	}
+	*/
+	
+	private static int total = 0;//para contar la cantidad de cuentas creadas
+	/*el static me indica q la variable no va a ser de la instancia de la clase (los objetos creados)
+	 *va a ser una variable de la clase.
+	 *Todos los objetos instanciados con esta clase van a tener en comun esta variable*/
+	
+	//Modificamos el constructor
+	public Cuenta(int agencia) { //Metodo q retora el objeto cuenta, no tiene ningun tipo de retorno, Java lo genera automaticamente, es el constructor
+		//System.out.println("Aqui se crea una nueva cuenta");
+		
+		if(agencia <= 0) {
+			System.out.println("No se permite el 0");
+			this.agencia = 1;
+		} else {
+			this.agencia = agencia;
+		}
+		total++;
+		
+		System.out.println("Se van creando " + total + " cuentas");
+	}
 	
 	//Definicion de metodos
 	
@@ -63,6 +89,9 @@ class Cuenta {
 		return titular;
 	}
 	
+	public static int getTotal() {
+		return total;
+	}
 	
 	
 	
