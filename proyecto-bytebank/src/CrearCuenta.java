@@ -15,7 +15,6 @@ public class CrearCuenta {
 		/*Una vez que se realiza una nueva instancia de una clase con new el objeto creado 
 		 * inicializa los atributos con sus valores por default, ej. los de tipo String
 		 * se inicializan con valor null, los de tipo int con valor 0*/
-		System.out.println(segundaCuenta.titular);
 		System.out.println(segundaCuenta.agencia);
 		
 		System.out.println(primeraCuenta);
