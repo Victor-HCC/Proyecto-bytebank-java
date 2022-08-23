@@ -4,18 +4,18 @@ public class TestReferencia {
 	public static void main(String[] args) {
 		
 		Cuenta primeraCuenta = new Cuenta();
-		primeraCuenta.saldo = 200;
+		primeraCuenta.depositar(200); 
 		
 		Cuenta segundaCuenta = primeraCuenta;
-		segundaCuenta.saldo = 100;
+		segundaCuenta.depositar(100);
 		
-		System.out.println(primeraCuenta.saldo);
-		System.out.println(segundaCuenta.saldo);
+		System.out.println(primeraCuenta.getSaldo());
+		System.out.println(segundaCuenta.getSaldo());
 		
-		primeraCuenta.saldo += 400;
+		primeraCuenta.depositar(400);
 		
-		System.out.println(primeraCuenta.saldo);
-		System.out.println(segundaCuenta.saldo);
+		System.out.println(primeraCuenta.getSaldo());
+		System.out.println(segundaCuenta.getSaldo());
 		
 		/*Ambas variables hacen referencia al mismo espacio de memoria ya que solo se hizo 
 		 * una instancia de Cuenta, por tanto aunque
