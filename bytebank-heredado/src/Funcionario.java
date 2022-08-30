@@ -1,5 +1,5 @@
 
-public class Funcionario {
+public abstract class Funcionario { //al ser una representacion abstracta no puede ser instanciado
 
 	private String nombre;
 	private String documento;
@@ -29,9 +29,10 @@ public class Funcionario {
 		this.salario = salario;
 	}
 	
-	public double getBonificacion() {
-		return this.salario*0.05;
-	}
+	public abstract double getBonificacion();/*metodo abstracto, no tiene implementacion, las
+	clases hijas deberan reescribir este metodo segun sus caracteristicas propias, todo 
+	método abstracto debe ser implementado por las clases hijas. Define solo la firma 
+	(visibilidad, retorno, nombre del método y parámetros).*/
 
 	public int getTipo() {
 		return tipo;

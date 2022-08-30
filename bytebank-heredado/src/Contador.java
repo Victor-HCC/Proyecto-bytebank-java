@@ -8,4 +8,6 @@ public class Contador extends Funcionario {
 		// TODO Auto-generated method stub
 		return 200;
 	}
+	
+	
 }
