@@ -6,6 +6,9 @@ public class TestSistemaInterno {
 		Gerente gerente1 = new Gerente();
 		Administrador admin = new Administrador();
 		
+		gerente1.setClave("Alura");
+		admin.setClave("Alura");
+		
 		sistema.auntentica(gerente1);
 		sistema.auntentica(admin);
 	}
