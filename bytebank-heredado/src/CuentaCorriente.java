@@ -7,9 +7,9 @@ public class CuentaCorriente extends Cuenta {
 	}
 	
 	@Override //no hay q borrar, la indicacion de sobre-escritura
-	public boolean retirar(double valor) { //polimorfismo, heredo un metodo y le puedo hacer modificaciones en las acciones q realiza
+	public void retirar(double valor) throws SaldoInsuficienteException { //polimorfismo, heredo un metodo y le puedo hacer modificaciones en las acciones q realiza
 		double comision = 0.2;
-		return super.retirar(valor + comision);
+		super.retirar(valor + comision);
 	}
 
 	@Override

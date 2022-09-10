@@ -22,25 +22,32 @@ public abstract class Cuenta {
 		}
 		total++;
 		
-		System.out.println("Se van creando " + total + " cuentas");
+		System.out.println("Se van creando " + total + " cuentas" + ", esta cuenta es " + this.numero);
 	}
 	
 	//Definicion de metodos
 	
 	public abstract void depositar(double valor) ;
 	
-	public boolean retirar(double valor) { //Lo defino como un metodo boolean para que retorne si la operacion fue exitosa o no
-		if(this.saldo >= valor) {
-			this.saldo -= valor;
-			return true;
-		} else {
-			return false;
+	
+	public void retirar(double valor) throws SaldoInsuficienteException  { //Lo defino como un metodo boolean para que retorne si la operacion fue exitosa o no
+		if(this.saldo < valor) {
+			throw new SaldoInsuficienteException("No tienes saldo");
 		}
+		this.saldo -= valor;
+		
 	}
+	
+	
 	
 	public boolean transferir(double valor, Cuenta cuenta) {
 		if(this.saldo >= valor) {
-			this.retirar(valor);
+			try {
+				this.retirar(valor);
+			} catch (SaldoInsuficienteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			cuenta.depositar(valor);
 			return true;
 		}
