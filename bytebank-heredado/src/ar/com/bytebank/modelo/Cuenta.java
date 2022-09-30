@@ -118,7 +118,11 @@ public abstract class Cuenta {
 		return total;
 	}
 	
-	
+	@Override
+	public String toString() { //reescribo el metodo para imprimir segun un formato determinado
+		String cuenta = "Numero: " + this.numero + ", Agencia: " + this.agencia;
+		return cuenta;
+	}
 	
 	
 	
