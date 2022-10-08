@@ -8,7 +8,8 @@ package ar.com.bytebank.modelo;
  */
 
 //entidad Cuenta:
-public abstract class Cuenta {
+public abstract class Cuenta implements Comparable<Cuenta> {
+	//implementamos Comparable para agregarle un ordenador natural a la clase Cuenta
 	
 	//Modificadores de acceso
 	// public  //Accesible desde cualquier parte
@@ -106,6 +107,10 @@ public abstract class Cuenta {
 		return agencia;
 	} 
 	
+	public int getNumero() {
+		return numero;
+	}
+	
 	public void setTitular(Cliente titular) {
 		this.titular = titular;
 	}
@@ -120,10 +125,30 @@ public abstract class Cuenta {
 	
 	@Override
 	public String toString() { //reescribo el metodo para imprimir segun un formato determinado
-		String cuenta = "Numero: " + this.numero + ", Agencia: " + this.agencia;
+		String cuenta = "Numero: " + this.numero + ", Agencia: " + this.agencia + ", Titular: " + this.titular.getNombre() + ", Saldo: " + this.getSaldo();
 		return cuenta;
 	}
 	
 	
+	@Override
+	public boolean equals(Object obj) {
+		Cuenta cuenta = (Cuenta) obj;//tengo q castear ya q equals recibe un objeto
+		//comparacion basada en valores
+		return this.agencia == cuenta.getAgencia() &&
+				this.numero == cuenta.getNumero();
+	}
+	
+	
+	@Override
+	public int compareTo(Cuenta o) {
+		//Orden natural: Numero de Agencia
+		return Integer.compare(this.agencia, o.getAgencia());
+		//Orden natural: saldo
+		//return Double.compare(this.getSaldo(), o.getSaldo());
+	}
 	
 }
+
+
+
+
