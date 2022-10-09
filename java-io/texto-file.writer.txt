@@ -1,0 +1,3 @@
+Primera linea via file writer
+Segunda linea via file writer
+Tercer linea via file writer

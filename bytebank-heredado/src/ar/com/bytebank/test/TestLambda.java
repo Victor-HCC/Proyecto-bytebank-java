@@ -104,6 +104,7 @@ public class TestLambda {
 //		}
 		
 		//con lambdas
+		//Consumer, es una interfaz funcional, no retorna nada, solo ejecuta una orden
 		listac.forEach(cuenta -> System.out.println(cuenta));
 		
 		

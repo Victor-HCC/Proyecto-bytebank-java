@@ -1,0 +1,2 @@
+Primera linea de mi archivo generado
+Segunda linea de mi archivo generado
